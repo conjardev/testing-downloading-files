@@ -13,6 +13,12 @@ echo "Installing dependancy: mysql-server"
 sudo apt -qq install -y mysql-server
 echo "Installing dependancy: php"
 sudo apt -qq install -y php
+echo "Installing dependancy: php-mysqlnd"
+sudo apt -qq install -y php-mysqlnd
+
+# Restart for luck
+echo "Restarting Apache"
+sudo service apache2 restart
 
 # Empty /var/www/html
 sudo rm -rf /var/www/html
