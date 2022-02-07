@@ -22,5 +22,15 @@ sudo git clone https://github.com/conjardev/testing-downloading-files.git /var/w
 
 # Done
 printf "\n\n"
-echo "The install is done, complete the ssetup on any LAN device at:"
+echo "The install is done, complete the setup on any LAN device at:"
 hostname -I
+
+# Tidy up
+# Remove cloned "setup.sh"
+sudo rm /var/www/html/setup.sh
+
+# Remove cloned "readme.md"
+sudo rm /var/www/html/readme.md
+
+# Delete this script
+sudo rm setup.sh
