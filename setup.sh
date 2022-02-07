@@ -20,6 +20,17 @@ sudo rm -rf /var/www/html
 # Clone into /var/www/html
 sudo git clone https://github.com/conjardev/testing-downloading-files.git /var/www/html
 
+# Set up tables
+sudo mysql -u root -proot -e "CREATE TABLE `Devices` (
+ `UUID` int NOT NULL AUTO_INCREMENT,
+ `ip` text NOT NULL,
+ `Name` text NOT NULL,
+ `Deployment` text NOT NULL,
+ `Recording` text NOT NULL,
+ `Type` text NOT NULL,
+ PRIMARY KEY (`UUID`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci"
+
 # Done
 printf "\n\n"
 echo "The install is done, complete the setup on any LAN device at:"
