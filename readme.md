@@ -8,3 +8,4 @@ This command will Download, Prepare and Run the setup command
 Update
 ```
 cd /var/www/html/ && sudo git pull https://github.com/conjardev/testing-downloading-files.git main
+```
