@@ -1,0 +1,63 @@
+
+    [   "https://i5.walmartimages.com/asr/5abac3ae-a02e-4c9a-b82a-a20ea3f90ff0_1.086c1a5514f36bfa954d7e5769df7306.jpeg",
+        "%s",
+        "<br>",
+        "<h1>Name Your Device</h1>",
+        "<h2>Pick a simple name to identify this robot from another</h2>",
+        "<br>",
+        "<h3>Device Name</h3>",
+        "<form id='form'>",
+        "<input required name='name'>",
+        "<input type='submit' value='Next'>",
+        "</form>",
+        "<br>",
+        "%ip"
+    ], // Step 1
+    [
+        "https://i5.walmartimages.com/asr/5abac3ae-a02e-4c9a-b82a-a20ea3f90ff0_1.086c1a5514f36bfa954d7e5769df7306.jpeg",
+        "%s",
+        "<h1>Pick Your deployment</h1>",
+        "<h2>Let us know if your robot should be a Reception or Security robot.</h2>",
+        "<h3>This can be changed later.</h3>",
+        "<br>",
+        "<h3>Deployment",
+        "<form id='form'>",
+        "<select name='deployment'>",
+        "<option value='security'>Security</option>",
+        "<option value='reception'>Reception</option>",
+        "</select>",
+        "<input type='submit' value='Next'>",
+        "</form>",
+        "<br>",
+        "<h3>What does this mean?</h3>",
+        "<h3>Reception deployments are designed for greeting and user interaction, security deployments are designed for detecting and preventing intrusion."
+    ], // Step 2
+    [
+        "https://i5.walmartimages.com/asr/5abac3ae-a02e-4c9a-b82a-a20ea3f90ff0_1.086c1a5514f36bfa954d7e5769df7306.jpeg",
+        "%s",
+        "<h1>Recordings</h1>",
+        "<h2>Set if video should be recorded Always, On Motion, or Never</h2>",
+        "<h3>This can be changed later.</h3>",
+        "<br>",
+        "<h3>Recording",
+        "<form id='form'>",
+        "<select name='recordings'>",
+        "<option value='always'>Always</option>",
+        "<option value='never'>Never</option>",
+        "<option value='motion'>On Motion</option>",
+        "</select>",
+        "<input type='submit' value='Next'>",
+        "</form>"
+    ], // Step 3
+    [
+        "https://i5.walmartimages.com/asr/5abac3ae-a02e-4c9a-b82a-a20ea3f90ff0_1.086c1a5514f36bfa954d7e5769df7306.jpeg",
+        "%s",
+        "<h1>Overview</h1>",
+        "<h2>the dingus</h2>",
+        "<br>",
+        "%overview",
+        "<form action='adopt.php' method='POST'>",
+        "%list-overview",
+        "<input type='submit' value='Finish'>",
+        "</form>"
+    ], // Overview

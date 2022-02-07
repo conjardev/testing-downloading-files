@@ -1,0 +1,24 @@
+[
+    "IMG",
+    "%s",
+    "<h1>Welcome to your controller</h1>",
+    "<h2>Let's start by giving your controller a name</h2>",
+    "<br>",
+    "<h3>Controller Name</h3>",
+    "<form id='form'>",
+    "<input required name='name'>",
+    "<input type='submit' value='Next'>",
+    "</form>"
+],
+[
+    "IMG",
+    "%s",
+    "<h1>Welcome to your controller</h1>",
+    "<h2>Let's start by giving your controller a name</h2>",
+    "<br>",
+    "<h3>Controller Name</h3>",
+    "<form id='form'>",
+    "<input required name='name'>",
+    "<input type='submit' value='Next'>",
+    "</form>"
+]
