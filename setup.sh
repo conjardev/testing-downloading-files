@@ -20,6 +20,17 @@ sudo rm -rf /var/www/html
 # Clone into /var/www/html
 sudo git clone https://github.com/conjardev/testing-downloading-files.git /var/www/html
 
+# Set default params for mysql
+sudo mysql_secure_installation
+
+y
+dingus
+dingus
+y
+y
+y
+y
+
 # Done
 printf "\n\n"
 echo "The install is done, complete the setup on any LAN device at:"
