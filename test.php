@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost:3306";
 $username = "username";
-$password = "password";
+$password = "dingus";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password);
@@ -10,7 +10,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-//$sql = "SET PASSWORD = 'INPUT'; RENAME USER username@localhost TO INPUT@localhost;"
+$sql = "SET PASSWORD = 'INPUT'; RENAME USER username@localhost TO INPUT@localhost;"
 
 //$result = $conn->query($sql);
 
