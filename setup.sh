@@ -20,6 +20,15 @@ sudo apt -qq install -y php-mysqlnd
 echo "Restarting Apache"
 sudo service apache2 restart
 
+# Set up default MYSQL user
+# The default username and password are "username" and "password"
+# However these values are changed on setup.
+echo "Creating user"
+mysql -u root <<EOF
+CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES on *.* TO 'username'@'localhost';
+EOF
+
 # Empty /var/www/html
 sudo rm -rf /var/www/html
 
