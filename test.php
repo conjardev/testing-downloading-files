@@ -17,9 +17,5 @@ RENAME USER ".username."@localhost TO INPUT@localhost
 
 $result = $conn->query($sql);
 
-while($row = $result->fetch_array()){
-    echo $row['app_ref_person_submitted_by'];
-}
-
 $conn-> close();
 ?>
