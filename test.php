@@ -10,9 +10,9 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SET PASSWORD = 'INPUT';";
-
-$result = $conn->query($sql);
+//$sql = "SET PASSWORD = 'INPUT';";
+mysqli_query($conn "SET PASSWORD = 'newpass'";
+//$result = $conn->query($sql);
 
 $conn-> close();
 ?>
