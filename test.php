@@ -10,7 +10,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SET PASSWORD = 'INPUT'; RENAME USER username@localhost TO INPUT@localhost;";
+$sql = "SET PASSWORD = 'INPUT';";
 
 $result = $conn->query($sql);
 
