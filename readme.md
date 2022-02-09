@@ -14,7 +14,7 @@ sudo wget https://raw.githubusercontent.com/conjardev/testing-downloading-files/
 > Download, prepare and execute `startup.sh`
 
 ⚠️: This will clear the `/var/www/html` folder of all it's contents.<br>
-⚠️This is designed to be used on a clean install, if you intend to use this with Apache already installed, ensure you are not in the `/var/www/html` directory when you run this command.
+⚠️: This is designed to be used on a clean install, if you intend to use this with Apache already installed, ensure you are not in the `/var/www/html` directory when you run this command.
 <br><br><br>
 #### Update
 ```
