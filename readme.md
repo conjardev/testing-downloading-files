@@ -56,7 +56,7 @@ cd /var/www/html/ && sudo git pull https://github.com/conjardev/testing-download
 - Remove `readme.md` from your clone (`sudo rm /var/www/html/readme.md`)
 ##### Complete setup
 The ***only*** way (that I am aware of) to complete the setup is through the web-based install wizard.
-Depending on your distrobution, find the IP adress of your device, and enter it into a browser, if all goes well, you will see a page instructing you on how to finish setting up the controller.
+Depending on your distribution, find the IP adress of your device, and enter it into a browser, if all goes well, you will see a page instructing you on how to finish setting up the controller.
 
 #### Update
 To update a manual installation, you need to pull down the latest version from GitHub.
