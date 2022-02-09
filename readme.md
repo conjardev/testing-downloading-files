@@ -5,6 +5,8 @@ This is a linux-based DIY protection system.
 **This program is currently only available on Ubuntu, more distros are coming soon**<br>
 No dependancies need to be installed for any distros, the provided `setup.sh` script is all that needs to be run.
 
+***It is highly advised NOT to download and manually install, the startup script should be used in almost all scenarios 
+
 ## Ubuntu
 
 #### Install
