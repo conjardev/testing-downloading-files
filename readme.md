@@ -5,7 +5,7 @@ This is a linux-based DIY protection system.
 **This program is currently only available on Ubuntu, more distros are coming soon**<br>
 No dependancies need to be installed for any distros, the provided `setup.sh` script is all that needs to be run.
 
-***It is highly advised NOT to download and manually install, the `startup.sh` script should be used in almost all scenarios***
+***It is highly advised NOT to download and manually install, the `setup.sh` script should be used in almost all scenarios***
 
 ## Ubuntu
 
@@ -23,3 +23,7 @@ sudo wget https://raw.githubusercontent.com/conjardev/testing-downloading-files/
 cd /var/www/html/ && sudo git pull https://github.com/conjardev/testing-downloading-files.git main
 ```
 > Downloads the latest version of this repository into the appropriate directory
+
+## Manual
+❗**This is officially unsupported, this may not work with the full featureset.**
+❗**It is only advised to use this if your distro is not supported!**
