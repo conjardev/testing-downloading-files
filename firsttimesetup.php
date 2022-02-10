@@ -21,11 +21,14 @@
     // Check connection
     if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
+    } else {
+        echo "Connected to db<br>";
     }
 
     //$sql = "SET PASSWORD = 'INPUT';";
-    //mysqli_query($conn "SET PASSWORD = 'newpass'";
-    //$result = $conn->query($sql);
+    mysqli_query($conn, "SET PASSWORD = 'newpass'");
+    $result = $conn->query($sql);
+    print_r("Called with result ".$result);
 
                 
     $conn-> close();
