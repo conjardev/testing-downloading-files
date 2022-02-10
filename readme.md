@@ -1,4 +1,4 @@
-# Test Repo
+# - This is currently unfinished -
 This is a linux-based DIY protection system.
 
 # Installation
