@@ -45,6 +45,7 @@ cd /var/www/html/ && sudo git pull https://github.com/conjardev/testing-download
   CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
   GRANT ALL PRIVILEGES on *.* TO 'username'@'localhost';
   ```
+- ❗Do not change the login details from `username` and `password`, this will be changed when the setup is completed online
 ##### Clone the repository
 - Clone the repository into `/var/www/html`
   - Option A: Manual
