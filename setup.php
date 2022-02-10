@@ -1,6 +1,42 @@
  <!DOCTYPE html>
 <!-- Connect to the database and verify the IP -->
 <?php
+    $servername = "localhost:3306";
+    $username = "webmaster";
+    $password = "oKbxmGhGxzDbRVrfAlUR";
+    $dbname = "robots";
+
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    // Check connection
+    if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+    }
+
+
+    if (!$_POST["customfile"]) {
+        $ip = htmlspecialchars($_POST["ip"], ENT_QUOTES);
+        
+        $sql = "SELECT * FROM `Devices` WHERE `ip` =  '".$ip."'";
+        $result = $conn->query($sql);
+        
+        if ($result->num_rows > 0) {
+            die("The device has already been paired");
+        } else {
+            // The device has not yet been adopted
+            // Send the request out and recieve the contents
+        
+            $request = file_get_contents("http://".$ip."/adopt-info.php");
+            $json = json_decode($request, true); 
+        
+            if ($json["verificationCode"] == "nonSecurePasswordToVerifyDevice") {
+                // If the device has the code to verify that it
+                // is the droid we are looking for
+            } else {
+                die("The IP is invalid");
+            }
+        }
+    }
 ?>
 
 
@@ -87,7 +123,12 @@
                             return string.charAt(0).toUpperCase() + string.slice(1);
                             }
 
-                            newHtml = newHtml + "<h3>" + capitalizeFirstLetter(name) + " - " + capitalizeFirstLetter(value) + "</h3>"
+                            if(name.toLowerCase() == "password") {
+                                newHtml = newHtml + "<h3>" + capitalizeFirstLetter(name) + " - " + ("*".repeat(value.length)) + "</h3>"
+                            } else {
+                                newHtml = newHtml + "<h3>" + capitalizeFirstLetter(name) + " - " + capitalizeFirstLetter(value) + "</h3>"
+                            }
+                            
                         } 
                     } else if (order[step][i] == "%ip") {
                         newHtml = newHtml + "<h3>"+deviceIp+"</h3>"
@@ -96,7 +137,10 @@
                             let info = formInfo[x]
                             info = JSON.parse(info)[0]
 
-                            newHtml = newHtml + "<input style='display: none' name='"+info["name"]+"' value='"+info["value"]+"'>"
+                            let name = info["name"].split(" ")
+                            name = name.join('')
+
+                            newHtml = newHtml + "<input style='display: none' name='"+name+"' value='"+info["value"]+"'>"
                         }
                         newHtml = newHtml + "<input style='display: none' name='ip' value='"+deviceIp+"'>"
                     } else {
