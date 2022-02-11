@@ -33,10 +33,11 @@
     //mysqli_query($conn, "SET PASSWORD = '".$newPassword."'");
     //$result = $conn->query($sql);
     print_r("Called with result ".$result);
-
+    
+    echo "<br>Starting pass write";
     $passfile = "configuration/passwords.json";
     $data = json_decode(file_get_contents($passfile));
-        
+
     $index = count($data);
         
     $data[$index] = array(
