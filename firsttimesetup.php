@@ -34,6 +34,20 @@
     $result = $conn->query($sql);
     print_r("Called with result ".$result);
 
-                
+    $passfile = "configuration/passwords.json";
+    $data = json_decode(file_get_contents($passfile));
+        
+    $index = count($data);
+        
+    $data[$index] = array(
+        "ip" => 'controller',
+        "password" => $newPassword
+    );
+        
+    $fp = fopen($passfile, "w");
+    fwrite($fp, json_encode($data));
+    fclose($fp);
+    
+
     $conn-> close();
 ?>
