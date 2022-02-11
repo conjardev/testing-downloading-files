@@ -36,7 +36,7 @@ sudo rm -rf /var/www/html
 sudo git clone https://github.com/conjardev/testing-downloading-files.git /var/www/html
 
 # Allow write permissions for files that need to be written to
-sudo chdmod 706 /var/www/html/configuration/passwords.json # Allow write to passwords file
+sudo chmod 706 /var/www/html/configuration/passwords.json # Allow write to passwords file
 
 # Done
 printf "\n\n"
