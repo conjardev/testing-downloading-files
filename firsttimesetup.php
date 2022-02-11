@@ -3,7 +3,7 @@
     $updtFreq = htmlspecialchars($_POST["updatefrequency"], ENT_QUOTES);
     $updtHour = htmlspecialchars($_POST["updatehour"], ENT_QUOTES);
     $username = htmlspecialchars($_POST["username"], ENT_QUOTES);
-    $password = hash("sha512", (htmlspecialchars($_POST["password"], ENT_QUOTES).time().rand(100,1000)));
+    $newPassword = hash("sha512", (htmlspecialchars($_POST["password"], ENT_QUOTES).time().rand(100,1000)));
 
     if (!$name || !$updtFreq || !$updtHour || !$username || !$password) {
         die("Not enough value provided");
@@ -30,10 +30,8 @@
     }
 
     //$sql = "SET PASSWORD = 'INPUT';";
-    mysqli_query($conn, "SET PASSWORD = '".$password."'");
+    mysqli_query($conn, "SET PASSWORD = '".$newPassword."'");
     $result = $conn->query($sql);
-    print_r("Called with result ".$result);
-    echo "<br><br>";
     print_r("Called with result ".$result);
 
                 
