@@ -5,7 +5,7 @@
     $username = htmlspecialchars($_POST["username"], ENT_QUOTES);
     $newPassword = hash("sha512", (htmlspecialchars($_POST["password"], ENT_QUOTES).time().rand(100,1000)));
 
-    if (!$name || !$updtFreq || !$updtHour || !$username || !$password) {
+    if (!$name || !$updtFreq || !$updtHour || !$username || !$newPassword) {
         die("Not enough value provided");
     }
 
