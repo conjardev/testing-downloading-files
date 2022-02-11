@@ -56,15 +56,15 @@
             <h3>See your connected devices</h3>
             <?php
                 $servername = "localhost:3306";
-                $username = "webmaster";
-                $password = "oKbxmGhGxzDbRVrfAlUR";
+                $username = "";
+                $password = "";
                 $dbname = "robots";
 
                 // Create connection
                 $conn = new mysqli($servername, $username, $password, $dbname);
                 // Check connection
                 if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
+                //die("Connection failed: " . $conn->connect_error);
                 }
 
                 $sql = "SELECT * FROM `Devices`";
