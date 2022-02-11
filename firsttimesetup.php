@@ -30,8 +30,8 @@
     }
 
     //$sql = "SET PASSWORD = 'INPUT';";
-    mysqli_query($conn, "SET PASSWORD = '".$newPassword."'");
-    $result = $conn->query($sql);
+    //mysqli_query($conn, "SET PASSWORD = '".$newPassword."'");
+    //$result = $conn->query($sql);
     print_r("Called with result ".$result);
 
     $passfile = "configuration/passwords.json";
@@ -47,6 +47,7 @@
     $fp = fopen($passfile, "w");
     fwrite($fp, json_encode($data));
     fclose($fp);
+    echo "<br>Uploaded";
     
 
     $conn-> close();
