@@ -34,8 +34,6 @@
     $result = $conn->query($sql);
     print_r("Called with result ".$result);
     echo "<br><br>";
-    mysqli_query($conn, "UPDATE USER SET user=''");
-    $result = $conn->query($sql);
     print_r("Called with result ".$result);
 
                 
