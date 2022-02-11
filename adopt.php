@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost:3306";
-$username = "webmaster";
-$password = "oKbxmGhGxzDbRVrfAlUR";
+$username = "";
+$password = "";
 $dbname = "robots";
 
 // Create connection
