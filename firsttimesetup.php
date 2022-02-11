@@ -35,20 +35,12 @@
     print_r("Called with result ".$result);
     
     echo "<br>Starting pass write";
-    $passfile = "configuration/passwords.json";
-    $data = json_decode(file_get_contents($passfile));
+    require_once('query_passwords.php');
+    createPassword("controller", $newPassword);
 
-    $index = count($data);
-        
-    $data[$index] = array(
-        "ip" => 'controller',
-        "password" => $newPassword
-    );
-        
-    $fp = fopen($passfile, "w");
-    fwrite($fp, json_encode($data));
-    fclose($fp);
+
     echo "<br>Uploaded";
+    
     
 
     $conn-> close();
