@@ -13,7 +13,7 @@
     echo $updtFreq."<br>";
     echo $updtHour."<br>";
     echo $username."<br>";
-    echo $password."<br>";
+    echo $newPassword."<br>";
     echo "<br><br>";
 
     $servername = "localhost:3306";
