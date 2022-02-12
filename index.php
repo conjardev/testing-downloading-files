@@ -5,7 +5,11 @@
     <title>Document</title>
 </head>
 <body>
-    <?php require_once("universal_commands.php"); ?>
+    <?php
+    require_once("universal_commands.php"); 
+    require('query_passwords.php');
+    require('controllerInfo.php');
+    ?>
     <?php
         $status = htmlspecialchars($_GET["stat"], ENT_QUOTES);
         if ($status == "0") {
@@ -56,15 +60,15 @@
             <h3>See your connected devices</h3>
             <?php
                 $servername = "localhost:3306";
-                $username = "";
-                $password = "";
+                $username = getControllerInfo("username");
+                $password = getPass("controller");
                 $dbname = "robots";
 
                 // Create connection
                 $conn = new mysqli($servername, $username, $password, $dbname);
                 // Check connection
                 if ($conn->connect_error) {
-                //die("Connection failed: " . $conn->connect_error);
+                die("Connection failed: " . $conn->connect_error);
                 }
 
                 $sql = "SELECT * FROM `Devices`";
