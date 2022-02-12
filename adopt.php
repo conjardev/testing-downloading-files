@@ -1,7 +1,10 @@
 <?php
+require('query_passwords.php');
+require('controllerInfo.php');
+
 $servername = "localhost:3306";
-$username = "";
-$password = "";
+$username = getControllerInfo("username");
+$password = getPass("controller");
 $dbname = "robots";
 
 // Create connection
