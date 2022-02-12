@@ -36,6 +36,7 @@
         // that it has been set already
         $username = $newUsername;
         $password = getPass("controller");
+        $dbname = 'robots';
     }
 
     // Create connection
@@ -75,10 +76,34 @@
         } else {
             echo "Connected to db under username ".$newUsername;
             // Set up DB
-            $sql = "CREATE DATABASE IF NOT EXISTS robots;";
+            $sql = "CREATE DATABASE IF NOT EXISTS ".$dbname.";";
             $result = $conn->query($sql);
             if ($conn->query($sql) === TRUE) {
+                // The db was sucessfully created, now connect to that
                 echo "<br>Database created successfully";
+                $conn-> close();
+                $conn = new mysqli($servername, $newUsername, $newPassword, $dbname);
+                if ($conn->connect_error) {
+                    // Could not connect
+                    die("Connection failed: " . $conn->connect_error);
+                }
+                // Code execute here is if we connected sucessfully
+                $sql = "CREATE TABLE `Devices` (
+                    `UUID` int NOT NULL AUTO_INCREMENT,
+                    `ip` text NOT NULL,
+                    `Name` text NOT NULL,
+                    `Deployment` text NOT NULL,
+                    `Recording` text NOT NULL,
+                    `Type` text NOT NULL,
+                    PRIMARY KEY (`UUID`)
+                   ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_c
+                ";
+                if ($conn->query($sql) === TRUE) {
+                    echo "<br>Table Robots created successfully";
+                } else {
+                    echo "<br>Error creating table: " . $conn->error;
+                }
+
               } else {
                 echo "<br>Error creating database: " . $conn->error;
               }
