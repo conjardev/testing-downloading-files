@@ -1,5 +1,7 @@
 <?php
     require('query_passwords.php');
+    require('controllerInfo.php');
+
     $name = htmlspecialchars($_POST["name"], ENT_QUOTES);
     $updtFreq = htmlspecialchars($_POST["updatefrequency"], ENT_QUOTES);
     $updtHour = htmlspecialchars($_POST["updatehour"], ENT_QUOTES);
@@ -59,9 +61,10 @@
         
         echo "<br>Starting pass write";
         createPassword("controller", $newPassword);
-
-
         echo "<br>Uploaded";
+
+        updateControllerInfo($name, $updtFreq, $updtHour, $newUsername);
+        header("Location: adopt-successs.php");
     } else {
         echo "Info already set<br>";
         $conn-> close();
