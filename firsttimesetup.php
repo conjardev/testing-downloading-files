@@ -88,6 +88,8 @@
                     die("Connection failed: " . $conn->connect_error);
                 }
                 // Code execute here is if we connected sucessfully
+
+                // Create "devices" table
                 $sql = "CREATE TABLE IF NOT EXISTS `Devices` (
                     `UUID` int NOT NULL AUTO_INCREMENT,
                     `ip` text NOT NULL,
@@ -100,6 +102,21 @@
                 ";
                 if ($conn->query($sql) === TRUE) {
                     echo "<br>Table Robots created successfully";
+                } else {
+                    echo "<br>Error creating table: " . $conn->error;
+                }
+
+                // Create "wizards" table
+                $sql = "CREATE TABLE IF NOT EXISTS `Wizards` (
+                    `UUID` int NOT NULL AUTO_INCREMENT,
+                    `Device` text NOT NULL,
+                    `IndexName` text NOT NULL,
+                    PRIMARY KEY (`UUID`)
+                   ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+                ";
+
+                if ($conn->query($sql) === TRUE) {
+                    echo "<br>Table Wizards created successfully";
                 } else {
                     echo "<br>Error creating table: " . $conn->error;
                 }
