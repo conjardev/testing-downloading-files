@@ -57,7 +57,6 @@
             <br>
             <h3>See your connected devices</h3>
             <?php
-                // include('query_passwords.php');
                 include('controllerInfo.php');
 
                 $servername = "localhost:3306";
