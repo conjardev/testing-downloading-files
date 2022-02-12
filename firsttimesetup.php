@@ -96,7 +96,7 @@
                     `Recording` text NOT NULL,
                     `Type` text NOT NULL,
                     PRIMARY KEY (`UUID`)
-                   ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_c
+                   ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4;
                 ";
                 if ($conn->query($sql) === TRUE) {
                     echo "<br>Table Robots created successfully";
