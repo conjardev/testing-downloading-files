@@ -5,39 +5,41 @@
     require("query_passwords.php");
     require("controllerInfo.php");
 
-    $servername = "localhost:3306";
-    $username = getControllerInfo("username");
-    $password = getPass("controller");
-    $dbname = "robots";
+    if (getPass("controller")) {
+        $servername = "localhost:3306";
+        $username = getControllerInfo("username");
+        $password = getPass("controller");
+        $dbname = "robots";
 
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    // Check connection
-    if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-    }
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        // Check connection
+        if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+        }
 
 
-    if (!$_POST["customfile"]) {
-        $ip = htmlspecialchars($_POST["ip"], ENT_QUOTES);
-        
-        $sql = "SELECT * FROM `Devices` WHERE `ip` =  '".$ip."'";
-        $result = $conn->query($sql);
-        
-        if ($result->num_rows > 0) {
-            die("The device has already been paired");
-        } else {
-            // The device has not yet been adopted
-            // Send the request out and recieve the contents
-        
-            $request = file_get_contents("http://".$ip."/adopt-info.php");
-            $json = json_decode($request, true); 
-        
-            if ($json["verificationCode"] == "nonSecurePasswordToVerifyDevice") {
-                // If the device has the code to verify that it
-                // is the droid we are looking for
+        if (!$_POST["customfile"]) {
+            $ip = htmlspecialchars($_POST["ip"], ENT_QUOTES);
+            
+            $sql = "SELECT * FROM `Devices` WHERE `ip` =  '".$ip."'";
+            $result = $conn->query($sql);
+            
+            if ($result->num_rows > 0) {
+                die("The device has already been paired");
             } else {
-                die("The IP is invalid");
+                // The device has not yet been adopted
+                // Send the request out and recieve the contents
+            
+                $request = file_get_contents("http://".$ip."/adopt-info.php");
+                $json = json_decode($request, true); 
+            
+                if ($json["verificationCode"] == "nonSecurePasswordToVerifyDevice") {
+                    // If the device has the code to verify that it
+                    // is the droid we are looking for
+                } else {
+                    die("The IP is invalid");
+                }
             }
         }
     }
