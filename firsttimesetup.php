@@ -117,6 +117,20 @@
 
                 if ($conn->query($sql) === TRUE) {
                     echo "<br>Table Wizards created successfully";
+                    // Populate wizards
+                    $sql = "
+                    INSERT INTO `Wizards` (`UUID`, `Device`, `IndexName`)
+                    SELECT * FROM (SELECT NULL, 'stationary', 'stationary-setup') AS tmp
+                    WHERE NOT EXISTS (
+                        SELECT `Device` FROM `Wizards` WHERE `Device` = 'stationary'
+                    ) LIMIT 1;";
+                    
+                    if ($conn->query($sql) === TRUE) {
+                        echo "New record created successfully";
+                    } else {
+                        echo "Error: " . $sql . "<br>" . $conn->error;
+                    }
+
                 } else {
                     echo "<br>Error creating table: " . $conn->error;
                 }
