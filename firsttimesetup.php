@@ -6,7 +6,7 @@
     $newUsername = htmlspecialchars($_POST["username"], ENT_QUOTES);
     if (!getPass("controller")) {
         // No new pass has been set
-        $newPassword = hash("sha512", (htmlspecialchars($_POST["password"], ENT_QUOTES).time().rand(100,1000)));
+        $newPassword = "poo";//hash("sha512", (htmlspecialchars($_POST["password"], ENT_QUOTES).time().rand(100,1000)));
     } else {
         // A new pass has been already defined
         $newPassword = getPass("controller");
