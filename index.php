@@ -7,8 +7,6 @@
 <body>
     <?php
     require_once("universal_commands.php"); 
-    require('query_passwords.php');
-    require('controllerInfo.php');
     ?>
     <?php
         $status = htmlspecialchars($_GET["stat"], ENT_QUOTES);
@@ -59,6 +57,9 @@
             <br>
             <h3>See your connected devices</h3>
             <?php
+                require('query_passwords.php');
+                require('controllerInfo.php');
+                
                 $servername = "localhost:3306";
                 $username = getControllerInfo("username");
                 $password = getPass("controller");
