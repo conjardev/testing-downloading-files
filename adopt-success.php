@@ -2,6 +2,9 @@
 require('query_passwords.php');
 require('controllerInfo.php');
 
+$ip = htmlspecialchars($_GET["adoptedip"], ENT_QUOTES);
+
+if ($ip != "controller") {
 $servername = "localhost:3306";
 $username = getControllerInfo("username");
 $password = getPass("controller");
@@ -14,7 +17,6 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$ip = htmlspecialchars($_GET["adoptedip"], ENT_QUOTES);
 
 $sql = "SELECT * FROM `Devices` WHERE `ip` =  '".$ip."' LIMIT 1";
 $result = $conn->query($sql);
@@ -27,6 +29,12 @@ if ($result->num_rows > 0) {
       $data = $row;
     }
   }
+
+} else {
+    $data = array(
+        "Name"=>getControllerInfo("name")
+    );
+}
 ?>
 
 <!DOCTYPE html>
