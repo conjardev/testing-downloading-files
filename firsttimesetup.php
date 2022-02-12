@@ -6,7 +6,7 @@
     $newUsername = htmlspecialchars($_POST["username"], ENT_QUOTES);
     if (!getPass("controller")) {
         // No new pass has been set
-        $newPassword = "poo";//hash("sha512", (htmlspecialchars($_POST["password"], ENT_QUOTES).time().rand(100,1000)));
+        $newPassword = hash("sha512", (htmlspecialchars($_POST["password"], ENT_QUOTES).time().rand(100,1000)));
     } else {
         // A new pass has been already defined
         $newPassword = getPass("controller");
@@ -14,7 +14,7 @@
     
 
     if (!$name || !$updtFreq || !$updtHour || !$newUsername || !$newPassword) {
-        die("Not enough value provided");
+        die("Not enough value provided<br>Either the program is broken (start an issue on github), or you're not supposed to be here! (naughty naughty)");
     }
 
     echo $name."<br>";
