@@ -64,7 +64,7 @@
         echo "<br>Uploaded";
 
         updateControllerInfo($name, $updtFreq, $updtHour, $newUsername);
-        header("Location: adopt-success.php?adoptedip=controller");
+        // header("Location: adopt-success.php?adoptedip=controller");
     } else {
         echo "Info already set<br>";
         $conn-> close();
@@ -74,6 +74,10 @@
             die("Connection failed: " . $conn->connect_error);
         } else {
             echo "Connected to db under username ".$newUsername;
+            // Set up DB
+            $sql = "CREATE DATABASE IF NOT EXISTS 'robots';";#
+            $result = $conn->query($sql);
+            echo "<br>Created 'Robots' database with result ".$result;
         }
     }
     
