@@ -1,6 +1,7 @@
 <?php
 $servername = "localhost:3306";
-
+$username = getControllerInfo("username");
+$password = getPass("controller");
 $dbname = "robots";
 
 // Create connection
