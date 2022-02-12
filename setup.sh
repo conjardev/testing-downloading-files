@@ -37,6 +37,7 @@ sudo git clone https://github.com/conjardev/testing-downloading-files.git /var/w
 
 # Allow write permissions for files that need to be written to
 sudo chmod 706 /var/www/html/configuration/passwords.json # Allow write to passwords file
+sudo chmod 706 /var/www/html/configuration/controllerInfo.json # Allow write to controller info file
 
 # Done
 printf "\n\n"
