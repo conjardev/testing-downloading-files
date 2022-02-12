@@ -104,7 +104,7 @@ if ($result->num_rows > 0) {
         $stmt->execute();
 
         echo "<br>Added sucessfully to the DB";
-        // header("Location: adopt-success.php?adoptedip=".$pushIP);
+        header("Location: adopt-success.php?adoptedip=".$pushIP);
     } else {
         $status = "0";
 
