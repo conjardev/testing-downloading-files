@@ -77,7 +77,11 @@
             // Set up DB
             $sql = "CREATE DATABASE IF NOT EXISTS 'robots';";#
             $result = $conn->query($sql);
-            echo "<br>Created 'Robots' database with result ".$result;
+            if ($conn->query($sql) === TRUE) {
+                echo "<br>Database created successfully";
+              } else {
+                echo "<br>Error creating database: " . $conn->error;
+              }
         }
     }
     
