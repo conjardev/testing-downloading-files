@@ -6,7 +6,7 @@
 </head>
 <body>
     <?php
-    require("universal_commands.php"); 
+    // require("universal_commands.php"); 
     ?>
     <?php
         $status = htmlspecialchars($_GET["stat"], ENT_QUOTES);
