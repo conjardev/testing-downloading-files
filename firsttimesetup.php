@@ -64,7 +64,7 @@
         echo "<br>Uploaded";
 
         updateControllerInfo($name, $updtFreq, $updtHour, $newUsername);
-        header("Location: adopt-success.php?ip=controller");
+        header("Location: adopt-success.php?adoptedip=controller");
     } else {
         echo "Info already set<br>";
         $conn-> close();
