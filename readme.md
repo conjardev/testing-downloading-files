@@ -32,11 +32,11 @@ cd /var/www/html/ && sudo git pull https://github.com/conjardev/testing-download
 ##### Download dependancies
 - Update your package manager
 - Install the following dependancies
-  - Git
-  - Apache 2
-  - Mysql-Server
-  - PHP
-  - PHP-mysqlnd
+  - `git`
+  - `apache2`
+  - `mysql-server`
+  - `php`
+  - `php-mysqlnd`
 - Restart apache.
 ##### Setup MySQL
 - Enter `mysql` with the `sudo mysql -u root` command
