@@ -45,17 +45,26 @@
         echo "Connected to db<br>";
     }
 
-    //$sql = "SET PASSWORD = 'INPUT';";
-    //mysqli_query($conn, "SET PASSWORD = '".$newPassword."'");
-    //$result = $conn->query($sql);
-    print_r("Called with result ".$result);
-    
-    echo "<br>Starting pass write";
-    createPassword("controller", $newPassword);
+    if (!getPass("controller")) {
+        // The new password has not yet been created, this means we can change to it
+
+        $sql = "SET PASSWORD = '".$newPassword."';";
+        $result = $conn->query($sql);
+        print_r("Attempted to update password with result ".$result."<br>");
+        
+        $sql = "RENAME USER 'username'@'localhost' TO '".$newUsername."'@'localhost';";
+        $result = $conn->query($sql);
+        print_r("Attempted to update username with result ".$result."<br>");
+        
+        
+        echo "<br>Starting pass write";
+        createPassword("controller", $newPassword);
 
 
-    echo "<br>Uploaded";
-    
+        echo "<br>Uploaded";
+    } else {
+        echo "Info already set";
+    }
     
 
     $conn-> close();
