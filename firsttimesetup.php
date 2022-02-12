@@ -75,7 +75,7 @@
         } else {
             echo "Connected to db under username ".$newUsername;
             // Set up DB
-            $sql = "CREATE DATABASE IF NOT EXISTS 'robots';";#
+            $sql = "CREATE DATABASE IF NOT EXISTS robots;";
             $result = $conn->query($sql);
             if ($conn->query($sql) === TRUE) {
                 echo "<br>Database created successfully";
