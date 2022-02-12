@@ -29,10 +29,15 @@
         echo "Connected to db<br>";
     }
 
-    //$sql = "SET PASSWORD = 'INPUT';";
+    $sql = "SET PASSWORD = 'INPUT';";
     //mysqli_query($conn, "SET PASSWORD = '".$newPassword."'");
-    //$result = $conn->query($sql);
-    print_r("Called with result ".$result);
+    $result = $conn->query($sql);
+    print_r("Attempted to update password with result ".$result."<br>");
+
+    $sql = "RENAME USER 'username'@'localhost' TO 'sus'@'localhost'";
+    //mysqli_query($conn, "SET PASSWORD = '".$newPassword."'");
+    $result = $conn->query($sql);
+    print_r("Attempted to update username with result ".$result."<br>");
     
     echo "<br>Starting pass write";
     require_once('query_passwords.php');
