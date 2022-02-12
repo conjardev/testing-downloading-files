@@ -63,7 +63,15 @@
 
         echo "<br>Uploaded";
     } else {
-        echo "Info already set";
+        echo "Info already set<br>";
+        $conn-> close();
+        $conn = new mysqli($servername, $newUsername, $newPassword);
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        } else {
+            echo "Connected to db under username ".$newUsername;
+        }
     }
     
 
