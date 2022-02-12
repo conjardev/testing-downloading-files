@@ -88,7 +88,7 @@
                     die("Connection failed: " . $conn->connect_error);
                 }
                 // Code execute here is if we connected sucessfully
-                $sql = "CREATE TABLE `Devices` (
+                $sql = "CREATE TABLE IF NOT EXISTS `Devices` (
                     `UUID` int NOT NULL AUTO_INCREMENT,
                     `ip` text NOT NULL,
                     `Name` text NOT NULL,
