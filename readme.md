@@ -1,6 +1,14 @@
 # - This is currently unfinished -
 This is a linux-based DIY protection system.
 
+# Configuration
+This system is designed to be run on a clean install of a supported Linux distribution.
+The two suggested configurations are:
+- #### Virtualised
+  - To run this, simply download an disk image of a **supported** distribution, set it up and follow the provided setup procedure
+- #### Dedicated
+  - While it is possible to run this on a whole dedicated server, this is more fit for a **Raspberry Pi** or other small computer. Just make sure that it is running a supported OS, or you may need to try your luck at [a manual installation](https://github.com/conjardev/testing-downloading-files#manual).
+
 # Installation
 **This program is currently only available on Ubuntu, more distros are coming soon**<br>
 No dependancies need to be installed for any distros, the provided `setup.sh` script is all that needs to be run.
