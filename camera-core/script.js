@@ -89,7 +89,7 @@ class Dish {
             element.style.height = (width * this._ratio) + "px"
 
             // to show the aspect ratio in demo (optional)
-            element.setAttribute('data-aspect', this._ratios[this._aspect]);
+            // element.setAttribute('data-aspect', this._ratios[this._aspect]);
 
         }
     }

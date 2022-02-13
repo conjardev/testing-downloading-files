@@ -38,7 +38,7 @@
     position: relative;
     vertical-align: middle;
     align-self: center;
-    overflow: hidden;
+    /* overflow: hidden; */
     display: inline-block;
     box-shadow: var(--shadow-dark);
     background: #fff;
