@@ -21,6 +21,21 @@
         if (!$page) {
             header("Location: ./?p=home");
         };
+
+        include('controllerInfo.php');
+
+        $servername = "localhost:3306";
+        $username = getControllerInfo("username");
+        $password = getPass("controller");
+        $dbname = "robots";
+
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        // Check connection
+        if ($conn->connect_error) {
+        header("Location: errorHandler.php?s=control-center&e=".$conn->connect_error);
+        die("Connection failed: " . $conn->connect_error);
+        }
     ?>
     <?php
         $status = htmlspecialchars($_GET["stat"], ENT_QUOTES);
@@ -82,21 +97,6 @@
                     <br>
                     <h3>See your connected devices</h3>
                     ';
-
-                    include('controllerInfo.php');
-
-                    $servername = "localhost:3306";
-                    $username = getControllerInfo("username");
-                    $password = getPass("controller");
-                    $dbname = "robots";
-
-                    // Create connection
-                    $conn = new mysqli($servername, $username, $password, $dbname);
-                    // Check connection
-                    if ($conn->connect_error) {
-                    header("Location: errorHandler.php?s=control-center&e=".$conn->connect_error);
-                    die("Connection failed: " . $conn->connect_error);
-                    }
 
                     $sql = "SELECT * FROM `Devices`";
                     $result = $conn->query($sql);
@@ -217,6 +217,21 @@
 
         <?php
             if ($page == "machines") {
+                $sql = "SELECT * FROM `Devices`";
+                $result = $conn->query($sql);
+                $num = $result->num_rows;
+                $info = [];
+
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while($row = $result->fetch_assoc()) {
+                        array_push($info, $row);
+                    }
+                }
+                
+                echo 'let info = '.json_encode($info);
+                echo 'console.log(info)';
+
                 echo '
                 window.addEventListener("load", function () {
 
@@ -230,10 +245,12 @@
                     // render dish
                     dish.append();
         
+                    for (x=0; x<ifo.length; x++) {
+                        dish.create();
+                    }
+
                     // resize the cameras
                     dish.resize()
-
-                    dish.add();
         
                     // resize event of window
                     window.addEventListener("resize", function () {
