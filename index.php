@@ -200,7 +200,7 @@
 
         }
 
-        let page = <?php echo $page; ?>;
+        let page = '<?php echo $page; ?>';
         if (page == "machines") {
             let boxes = document.getElementsByClassName("box")
             for (i=0; i<boxes.length; i++) {
