@@ -211,10 +211,6 @@
                     // create dish
                     let dish = new Dish(scenary);
         
-                    // set controls (optional)
-                    let controls = new Controls(dish, scenary);
-                    controls.append();
-        
                     // render dish
                     dish.append();
         
