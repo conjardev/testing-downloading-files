@@ -232,6 +232,8 @@
         
                     // resize the cameras
                     dish.resize()
+
+                    dish.add();
         
                     // resize event of window
                     window.addEventListener("resize", function () {
