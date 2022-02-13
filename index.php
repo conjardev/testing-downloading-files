@@ -33,7 +33,7 @@
         $conn = new mysqli($servername, $username, $password, $dbname);
         // Check connection
         if ($conn->connect_error) {
-        header("Location: errorHandler.php?s=control-center&e=".$conn->connect_error);
+        // header("Location: errorHandler.php?s=control-center&e=".$conn->connect_error);
         die("Connection failed: " . $conn->connect_error);
         }
     ?>
