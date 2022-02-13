@@ -11,7 +11,7 @@ $dbname = "robots";
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
-    header("Location: http://nudle/robot/errorHandler.php?s=adoption&e=".$conn->connect_error);
+    header("Location: errorHandler.php?s=adoption&e=".$conn->connect_error);
     die("Connection failed: " . $conn->connect_error);
 }
 
@@ -33,7 +33,7 @@ if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
     $status = "2";
     echo "Device already adopted <br> ".json_encode($row);
-    header("Location: http://nudle/robot/errorHandler.php?s=adoption&e=Already adopted, ".json_encode($row));
+    header("Location: errorHandler.php?s=adoption&e=Already adopted, ".json_encode($row));
   }
 } else {
     echo "Not yet adopted, calling<br>";
@@ -112,7 +112,7 @@ if ($result->num_rows > 0) {
 
         echo "<br>The device did not have a verification code<br>";
         echo "This has even been misconfigured or the IP is not linked to a device";
-        header("Location: http://nudle/robot/errorHandler.php?s=adoption&e=No verification code on device, wrong IP?, misconfigured?");
+        header("Location: errorHandler.php?s=adoption&e=No verification code on device, wrong IP?, misconfigured?");
         
     }
 }
