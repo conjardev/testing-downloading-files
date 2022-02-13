@@ -200,6 +200,21 @@
 
         }
 
+        let page = <?php echo $page; ?>;
+        if (page == "machines") {
+            let boxes = document.getElementsByClassName("box")
+            for (i=0; i<boxes.length; i++) {
+                boxes[i].style.display="hidden";
+            }
+            document.getElementsByClassName("content")[0].style.display = "unset"
+        } else {
+            let boxes = document.getElementsByClassName("box")
+            for (i=0; i<boxes.length; i++) {
+                boxes[i].style.display="unset";
+            }
+            document.getElementsByClassName("content")[0].style.display = "grid"
+        }
+
         <?php
             if ($page == "machines") {
                 echo '
@@ -207,7 +222,8 @@
 
                     // select parent of dish
                     let scenary = document.getElementsByClassName("content")[0];
-        
+                    scenary.innerHTML = "";
+
                     // create dish
                     let dish = new Dish(scenary);
         
