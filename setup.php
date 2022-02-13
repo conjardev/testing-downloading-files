@@ -15,6 +15,7 @@
         $conn = new mysqli($servername, $username, $password, $dbname);
         // Check connection
         if ($conn->connect_error) {
+        header("Location: errorHandler.php?s=setup&e=Database error - ".$conn->connect_error);
         die("Connection failed: " . $conn->connect_error);
         }
 
@@ -26,6 +27,7 @@
             $result = $conn->query($sql);
             
             if ($result->num_rows > 0) {
+                header("Location: errorHandler.php?s=setup&e=IP has already been set up");
                 die("The device has already been paired");
             } else {
                 // The device has not yet been adopted
@@ -38,6 +40,7 @@
                     // If the device has the code to verify that it
                     // is the droid we are looking for
                 } else {
+                    header("Location: errorHandler.php?s=setup&e=Invalid IP");
                     die("The IP is invalid");
                 }
             }
