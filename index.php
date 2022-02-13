@@ -269,7 +269,7 @@
 
         
         function openMachine(ip) {
-            console.log("Opeing machine " + ip)                
+            console.log("Opeing machine with IP of " + ip)                
         }
         
     </script>
