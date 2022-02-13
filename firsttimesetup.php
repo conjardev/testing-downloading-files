@@ -142,6 +142,7 @@
         echo "<br>Uploaded";
 
         updateControllerInfo($name, $updtFreq, $updtHour, $newUsername);
+        $conn-> close();
         writeDB($servername, $newUsername, $newPassword, $dbname);
         // header("Location: adopt-success.php?adoptedip=controller");
     } else {
