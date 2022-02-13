@@ -57,7 +57,7 @@ class Dish {
     }
 
     // render cameras of dish
-    render() {
+    render(ip) {
 
         // delete cameras (only those that are left over)
         if (this._dish.children) {
@@ -70,6 +70,7 @@ class Dish {
         // add cameras (only the necessary ones)
         for (let i = this._dish.children.length; i < this._cameras; i++) {
             let Camera = document.createElement('div')
+            Camera.setAttribute("onclick", ip)
             this._dish.appendChild(Camera);
             console.log("I am camera "+i)
         }
@@ -144,9 +145,9 @@ class Dish {
     }
 
     // add new camera
-    add() {
+    add(ip) {
         this._cameras++;
-        this.render();
+        this.render(ip);
         this.resize();
     }
 

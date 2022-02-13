@@ -248,7 +248,7 @@
         
                     for (x=0; x<info.length; x++) {
                         console.log("Creating camera "+x);
-                        dish.add();
+                        dish.add(info[x]["ip"]);
                     }
 
                     // resize the cameras
