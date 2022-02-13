@@ -2,12 +2,22 @@
 <head>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+
+    <?php
+        $page = htmlspecialchars($_GET["p"], ENT_QUOTES);
+        if ($page == "machines") {
+            echo '
+            <link rel="stylesheet" href="camera-core/styles.css">
+            <script src="camera-core/script.js"></script>
+            ';
+        }
+    ?>
+
     <title>Document</title>
 </head>
 <body>
     <?php
         require("universal_commands.php"); 
-        $page = htmlspecialchars($_GET["p"], ENT_QUOTES);
         if (!$page) {
             header("Location: ./?p=home");
         };
