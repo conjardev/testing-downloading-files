@@ -71,6 +71,7 @@ class Dish {
         for (let i = this._dish.children.length; i < this._cameras; i++) {
             let Camera = document.createElement('div')
             Camera.setAttribute("onclick", 'openMachine("'+ip+'")')
+            Camera.id = "camera-"+ip;
             this._dish.appendChild(Camera);
             console.log("I am camera "+i)
         }
