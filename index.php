@@ -7,6 +7,10 @@
 <body>
     <?php
     require("universal_commands.php"); 
+    $page = htmlspecialchars($_GET["p"], ENT_QUOTES);
+    if (!$page) {
+        header("Location: ./?p=home");
+    }
     ?>
     <?php
         $status = htmlspecialchars($_GET["stat"], ENT_QUOTES);
