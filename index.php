@@ -266,6 +266,11 @@
                 ';
             }
         ?>
+
+        
+        function openMachine(ip) {
+            console.log("Opeing machine " + ip)                
+        }
         
     </script>
 
