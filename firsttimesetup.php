@@ -16,6 +16,7 @@
     
 
     if (!$name || !$updtFreq || !$updtHour || !$newUsername || !$newPassword) {
+        header("Location: errorHandler.php?s=first-setup&e=Not enough data provided");
         die("Not enough value provided<br>Either the program is broken (start an issue on github), or you're not supposed to be here! (naughty naughty)");
     }
 
@@ -23,6 +24,7 @@
         $conn = new mysqli($servername, $newUsername, $newPassword);
         // Check connection
         if ($conn->connect_error) {
+            header("Location: errorHandler.php?s=first-setup&e=Database error - ".$conn->connect_error);
             die("Connection failed: " . $conn->connect_error);
         } else {
         echo "Connected to db under username ".$newUsername;
@@ -36,6 +38,7 @@
                 $conn = new mysqli($servername, $newUsername, $newPassword, $dbname);
                 if ($conn->connect_error) {
                     // Could not connect
+                    header("Location: errorHandler.php?s=first-setup&e=Database error - ".$conn->connect_error);
                     die("Connection failed: " . $conn->connect_error);
                 }
                 // Code execute here is if we connected sucessfully
@@ -56,6 +59,7 @@
                 } else {
                     echo "<br>Error creating table: " . $conn->error;
                     echo "<br>SQL = ".$sql;
+                    header("Location: errorHandler.php?s=first-setup&e=Data error - ".$conn->error);
                 }
 
                 // Create "wizards" table
@@ -82,16 +86,19 @@
                     } else {
                         echo "Error: " . $sql . "<br>" . $conn->error;
                         echo "<br>SQL = ".$sql;
+                        header("Location: errorHandler.php?s=first-setup&e=Data error - ".$conn->error);
                     }
 
                 } else {
                     echo "<br>Error creating table: " . $conn->error;
                     echo "<br>SQL = ".$sql;
+                    header("Location: errorHandler.php?s=first-setup&e=Data error - ".$conn->error);
                 }
 
             } else {
                 echo "<br>Error creating database: " . $conn->error;
                 echo "<br>SQL = ".$sql;
+                header("Location: errorHandler.php?s=first-setup&e=Data error - ".$conn->error);
             }
     }
     }
@@ -120,6 +127,7 @@
     $conn = new mysqli($servername, $username, $password);
     // Check connection
     if ($conn->connect_error) {
+        header("Location: errorHandler.php?s=first-setup&e=Database error - ".$conn->connect_error);
         die("Connection failed: " . $conn->connect_error);
     } else {
         echo "Connected to db<br>";
