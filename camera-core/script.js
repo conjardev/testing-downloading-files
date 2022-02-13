@@ -1,3 +1,6 @@
+// This code has been sourced and modified from Alicunde on GitHub
+// https://github.com/Alicunde/Videoconference-Dish-CSS-JS
+
 class Dish {
 
     // ratios

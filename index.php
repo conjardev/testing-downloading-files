@@ -216,6 +216,7 @@
         }
 
         <?php
+
             if ($page == "machines") {
                 $sql = "SELECT * FROM `Devices`";
                 $result = $conn->query($sql);
@@ -232,6 +233,9 @@
                 echo 'let info = '.json_encode($info).';';
                 echo '
                 console.log(info);';
+
+                // This code has been sourced and modified from Alicunde on GitHub
+                // https://github.com/Alicunde/Videoconference-Dish-CSS-JS
 
                 echo '
                 window.addEventListener("load", function () {
