@@ -143,7 +143,7 @@
 
         updateControllerInfo($name, $updtFreq, $updtHour, $newUsername);
         $conn-> close();
-        writeDB($servername, $newUsername, $newPassword, $dbname);
+        writeDB($servername, $newUsername, $newPassword, 'robots');
         // header("Location: adopt-success.php?adoptedip=controller");
     } else {
         echo "Info already set<br>";
