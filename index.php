@@ -230,7 +230,7 @@
                 }
                 
                 echo 'let info = '.json_encode($info).';';
-                echo '<br>console.log(info)<br>';
+                echo 'console.log(info);';
 
                 echo '
                 window.addEventListener("load", function () {
