@@ -245,7 +245,7 @@
                     // render dish
                     dish.append();
         
-                    for (x=0; x<ifo.length; x++) {
+                    for (x=0; x<info.length; x++) {
                         dish.create();
                     }
 
