@@ -6,11 +6,11 @@
 </head>
 <body>
     <?php
-    require("universal_commands.php"); 
-    $page = htmlspecialchars($_GET["p"], ENT_QUOTES);
-    if (!$page) {
-        header("Location: ./?p=home");
-    }
+        require("universal_commands.php"); 
+        $page = htmlspecialchars($_GET["p"], ENT_QUOTES);
+        if (!$page) {
+            header("Location: ./?p=home");
+        };
     ?>
     <?php
         $status = htmlspecialchars($_GET["stat"], ENT_QUOTES);
@@ -43,96 +43,117 @@
 
     <div class="content">
         <div style="grid-area: boxleft;" class="box">
-            <div id="centered">
-                <h2>No floorplan set up</h2>
-                <button onclick="openWizard('map-setup')">Configure Now</button>
-            </div>
+            <?php 
+
+            if ($page == "home") {
+            echo '
+                <div id="centered">
+                    <h2>No floorplan set up</h2>
+                    <button onclick="openWizard(&quot;map-setup&quot;)">Configure Now</button>
+                </div>
+                ';
+            }
+
+            ?>
         </div>
 
         <div style="grid-area: boxright;" class="box">
-            <h1>Devices</h1>
-            <h3>See your devices and adopt new ones</h3>
-            <br>
-            <h3>Adopt a new device:</h3>
-            <form id="adopt" action="setup.php" method="POST">
-                <input type="text" placeholder="Pi IP (192.168.1...)" name="ip">
-                <input type="submit" value="Adopt">
-            </form>
-            <br>
-            <h3>See your connected devices</h3>
             <?php
-                include('controllerInfo.php');
+                if ($page == "home") {
+                    echo '
+                    <h1>Devices</h1>
+                    <h3>See your devices and adopt new ones</h3>
+                    <br>
+                    <h3>Adopt a new device:</h3>
+                    <form id="adopt" action="setup.php" method="POST">
+                        <input type="text" placeholder="Pi IP (192.168.1...)" name="ip">
+                        <input type="submit" value="Adopt">
+                    </form>
+                    <br>
+                    <h3>See your connected devices</h3>
+                    ';
 
-                $servername = "localhost:3306";
-                $username = getControllerInfo("username");
-                $password = getPass("controller");
-                $dbname = "robots";
+                    include('controllerInfo.php');
 
-                // Create connection
-                $conn = new mysqli($servername, $username, $password, $dbname);
-                // Check connection
-                if ($conn->connect_error) {
-                header("Location: errorHandler.php?s=control-center&e=".$conn->connect_error);
-                die("Connection failed: " . $conn->connect_error);
+                    $servername = "localhost:3306";
+                    $username = getControllerInfo("username");
+                    $password = getPass("controller");
+                    $dbname = "robots";
+
+                    // Create connection
+                    $conn = new mysqli($servername, $username, $password, $dbname);
+                    // Check connection
+                    if ($conn->connect_error) {
+                    header("Location: errorHandler.php?s=control-center&e=".$conn->connect_error);
+                    die("Connection failed: " . $conn->connect_error);
+                    }
+
+                    $sql = "SELECT * FROM `Devices`";
+                    $result = $conn->query($sql);
+
+                    if ($result->num_rows > 0) {
+                        // output data of each row
+                        while($row = $result->fetch_assoc()) {
+                            echo "<h4>".$row["Name"].": ".$row["ip"]."</h4>";
+                        }
+                    }
                 }
-
-                $sql = "SELECT * FROM `Devices`";
-                $result = $conn->query($sql);
-
-                if ($result->num_rows > 0) {
-                // output data of each row
-                while($row = $result->fetch_assoc()) {
-                    echo "<h4>".$row["Name"].": ".$row["ip"]."</h4>";
-                }
-                }
+                
             ?>
         </div>
-        <div style="grid-area: box;" class="box">
-            <form id="voice-form"> 
-                <select onchange="speak()" name="m">
-                    <option selected disabled>SELECT MESSAGE</option>
-                    <?php
-                        $arr = [
-                            array("name"=>"Custom", "value"=>
-                            [
-                                ["Wow Hello", "custom1"],
-                                ["I am talking haha", "custom2"]
-                            ]
-                            ),
-                            array("name"=>"Greeting", "value"=>
-                            [
-                                ["Good morning", "greetMorning"],
-                                ["Good afternoon", "greetAfternoon"],
-                                ["Good evening", "greetEvening"],
-                                ["Hello", "hello"],
-                                ["Hi", "hi"],
-                                ["Good day to you", "goodDay"],
-                                ["Excuse me!", "pardon1"],
-                                ["Pardon me!", "pardon2"]
-                            ]
-                            ),
-                            array("name"=>"Emergency", "value"=>
-                            [
-                                ["Step away from this machine", "away1"],
-                                ["Step away from this machine now", "away2"],
-                                ["Seriously step away", "away3"],
-                                ["5,4,3,2,1", "countdown"],
-                                ["Authorities have been notified", "notify"],
-                            ]
-                            )
-                        ];
 
-                        foreach ($arr as $group) {
-                            echo "<optgroup label='".$group["name"]."'>";
-                            foreach ($group["value"] as $item) {
-                                echo "<option value='".$item[0]."'>".$item[0]."</option>";
-                            }
-                            echo "</opptgroup>";
-                        }
-                        
-                    ?>
-                </select>
-            </form>
+        <div style="grid-area: box;" class="box">
+            <?php 
+            if ($page == "home") {
+                echo '
+                <form id="voice-form"> 
+                    <select onchange="speak()" name="m">
+                        <option selected disabled>SELECT MESSAGE</option>
+                ';
+                $arr = [
+                    array("name"=>"Custom", "value"=>
+                    [
+                        ["Wow Hello", "custom1"],
+                        ["I am talking haha", "custom2"]
+                    ]
+                    ),
+                    array("name"=>"Greeting", "value"=>
+                    [
+                        ["Good morning", "greetMorning"],
+                        ["Good afternoon", "greetAfternoon"],
+                        ["Good evening", "greetEvening"],
+                        ["Hello", "hello"],
+                        ["Hi", "hi"],
+                        ["Good day to you", "goodDay"],
+                        ["Excuse me!", "pardon1"],
+                        ["Pardon me!", "pardon2"]
+                    ]
+                    ),
+                    array("name"=>"Emergency", "value"=>
+                    [
+                        ["Step away from this machine", "away1"],
+                        ["Step away from this machine now", "away2"],
+                        ["Seriously step away", "away3"],
+                        ["5,4,3,2,1", "countdown"],
+                        ["Authorities have been notified", "notify"],
+                    ]
+                    )
+                ];
+
+                foreach ($arr as $group) {
+                    echo "<optgroup label='".$group["name"]."'>";
+                    foreach ($group["value"] as $item) {
+                        echo "<option value='".$item[0]."'>".$item[0]."</option>";
+                    }
+                    echo "</opptgroup>";
+                }
+                            
+                echo '
+                    </select>
+                </form>
+                ';
+            }
+            ?>
         </div>
 
     </div>
