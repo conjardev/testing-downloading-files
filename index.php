@@ -230,7 +230,8 @@
                 }
                 
                 echo 'let info = '.json_encode($info).';';
-                echo 'console.log(info);';
+                echo '
+                console.log(info);';
 
                 echo '
                 window.addEventListener("load", function () {
@@ -246,6 +247,7 @@
                     dish.append();
         
                     for (x=0; x<info.length; x++) {
+                        console.log("Creating camera "+x);
                         dish.create();
                     }
 
