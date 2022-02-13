@@ -149,6 +149,7 @@
         echo "Info already set<br>";
         $conn-> close();
         writeDB($servername, $newUsername, $newPassword, $dbname);
+        header("Location: ./");
     }
     
 
