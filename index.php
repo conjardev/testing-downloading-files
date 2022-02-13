@@ -206,7 +206,7 @@
                 window.addEventListener("load", function () {
 
                     // select parent of dish
-                    let scenary = document.getElementsByClassName("Scenary")[0];
+                    let scenary = document.getElementsByClassName("content")[0];
         
                     // create dish
                     let dish = new Dish(scenary);
