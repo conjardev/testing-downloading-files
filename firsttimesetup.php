@@ -55,6 +55,7 @@
                     echo "<br>Table Robots created successfully";
                 } else {
                     echo "<br>Error creating table: " . $conn->error;
+                    echo "<br>SQL = ".$sql;
                 }
 
                 // Create "wizards" table
@@ -80,14 +81,17 @@
                         echo "New record created successfully";
                     } else {
                         echo "Error: " . $sql . "<br>" . $conn->error;
+                        echo "<br>SQL = ".$sql;
                     }
 
                 } else {
                     echo "<br>Error creating table: " . $conn->error;
+                    echo "<br>SQL = ".$sql;
                 }
 
             } else {
                 echo "<br>Error creating database: " . $conn->error;
+                echo "<br>SQL = ".$sql;
             }
     }
     }
