@@ -229,8 +229,8 @@
                     }
                 }
                 
-                echo 'let info = '.json_encode($info);
-                echo 'console.log(info)';
+                echo 'let info = '.json_encode($info).';';
+                echo '<br>console.log(info)<br>';
 
                 echo '
                 window.addEventListener("load", function () {
