@@ -147,7 +147,7 @@
         }
 
         function setpage(page) {
-            window.location.href("./?p=")
+            window.location.href = "./?p=" + page
             console.log(page)
         }
 
