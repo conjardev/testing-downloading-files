@@ -74,7 +74,7 @@ class Dish {
         for (let i = this._dish.children.length; i < this._cameras; i++) {
             let Camera = document.createElement('div')
             Camera.setAttribute("onclick", 'openMachine("'+ip+'")')
-            let iframe = document.createElement('iframe')
+            let iframe = document.createElement('img')
             iframe.src = "http://" + ip + ":8081"
             iframe.style.width = "100%"
             iframe.style.height = "100%"
@@ -99,8 +99,6 @@ class Dish {
             // calculate dimensions
             element.style.width = width + "px"
             element.style.height = (width * this._ratio) + "px"
-            element.children[0].children[0].children[0].children[1].children[0].style.width = "100%"
-            element.children[0].children[0].children[0].children[1].children[0].style.height = "100%"
             // to show the aspect ratio in demo (optional)
             // element.setAttribute('data-aspect', this._ratios[this._aspect]);
 
