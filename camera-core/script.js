@@ -99,8 +99,8 @@ class Dish {
             // calculate dimensions
             element.style.width = width + "px"
             element.style.height = (width * this._ratio) + "px"
-            element.children[1].children[0].children[0].children[1].children[0].style.width = "100%"
-            element.children[1].children[0].children[0].children[1].children[0].style.height = "100%"
+            element.children[0].children[0].children[0].children[1].children[0].style.width = "100%"
+            element.children[0].children[0].children[0].children[1].children[0].style.height = "100%"
             // to show the aspect ratio in demo (optional)
             // element.setAttribute('data-aspect', this._ratios[this._aspect]);
 
