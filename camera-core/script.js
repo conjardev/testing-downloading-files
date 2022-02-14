@@ -79,7 +79,12 @@ class Dish {
             iframe.style.width = "100%"
             iframe.style.height = "100%"
             iframe.style.margin = "2px";
-            iframe.id = "feed";
+            iframe.setAttribute("class", "camera-feed")
+            setInterval(function () {
+                let content = iframe.src
+                iframe.src = ""
+                iframe.src = content;
+            }, 1000);
             Camera.appendChild(iframe);
             Camera.id = "camera-"+ip;
             this._dish.appendChild(Camera);
@@ -209,3 +214,4 @@ class Dish {
  
 
 }
+
