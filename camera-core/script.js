@@ -78,7 +78,7 @@ class Dish {
             video.src = 'https://alicunde.github.io/Videoconference-Dish-CSS-JS/videos/demo.mp4'
             video.style.width = "100%"
             video.style.height = "100%"
-            video.style.margin = 0;
+            video.style.margin = "2px";
             Camera.appendChild(video);
             Camera.id = "camera-"+ip;
             this._dish.appendChild(Camera);
