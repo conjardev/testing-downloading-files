@@ -74,6 +74,12 @@ class Dish {
         for (let i = this._dish.children.length; i < this._cameras; i++) {
             let Camera = document.createElement('div')
             Camera.setAttribute("onclick", 'openMachine("'+ip+'")')
+            let video = document.createElement('video')
+            video.src = 'https://alicunde.github.io/Videoconference-Dish-CSS-JS/videos/demo.mp4'
+            video.style.width = "100%"
+            video.style.height = "100%"
+            video.style.margin = 0;
+            Camera.appendChild(video);
             Camera.id = "camera-"+ip;
             this._dish.appendChild(Camera);
             console.log("I am camera "+i)
