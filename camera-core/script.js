@@ -75,7 +75,7 @@ class Dish {
             let Camera = document.createElement('div')
             Camera.setAttribute("onclick", 'openMachine("'+ip+'")')
             let iframe = document.createElement('iframe')
-            iframe.src = ip + ":8081"
+            iframe.src = "http://" + ip + ":8081"
             iframe.style.width = "100%"
             iframe.style.height = "100%"
             iframe.style.margin = "2px";
